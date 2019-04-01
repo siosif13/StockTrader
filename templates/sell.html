@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+<div>
+		<table>
+			<tr>
+				<th>Cash Balance</th>
+			</tr>
+			<tr>
+				<TD> {{ cash }}</TD>
+			</tr>
+		</table>
+</div>
+<div>
+	<table>
+		<tr>
+			<th>Stocks</th>
+			<th>Symbol</th>
+			<th>Shares</th>
+			<th>Initial price / share</th>
+			<th>Current price / share</th>
+		</tr>
+		{% for item in items %}
+			<TR>
+				<TD> {{ item.stock }} </TD>
+				<TD> {{ item.symbol }} </TD>
+				<TD> {{ item.shares }} </TD>
+				<TD> {{ item.inPrice }} </TD>
+				<TD> {{ item.curPrice }} </TD>
+			</TR>
+		{% endfor %}
+	</table>
+</div>
+<form action="/sell" method="post">
+	<div class="form-group">
+		<input autocomplete="off" autofocus class="form-control" name="symbol" placeholder="Symbol" type="text"/>
+	</div>
+	<div class="form-group">
+		<input autocomplete="off" autofocus class="form-control" name="shares" placeholder="Shares" type="text"/>
+	</div>
+	<button class="btn btn-primary" type="submit">Sell</button>
+</form>
+{% endblock %}

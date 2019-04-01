@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+<div>
+	<table>
+		<tr>
+			<th>Buy / Sell</th>
+			<th>Symbol</th>
+			<th>Price</th>
+			<th>Shares</th>
+			<th>Date n Time</th>
+		</tr>
+		{% for item in items %}
+			<TR>
+				<TD> {{ item.buy_sell }} </TD>
+				<TD> {{ item.symbol }} </TD>
+				<TD> {{ item.price }} </TD>
+				<TD> {{ item.shares }} </TD>
+				<TD> {{ item.date_time }} </TD>
+			</TR>
+		{% endfor %}
+	</table>
+</div>
+{% endblock %}

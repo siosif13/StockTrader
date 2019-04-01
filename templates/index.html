@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+<div>
+	<p>Hello {{ name }} </p>
+		<table>
+			<tr>
+				<th>Cash Balance</th>
+				<th>Total Balance</th>
+			</tr>
+			<tr>
+				<TD> {{ cash }}</TD>
+				<TD> {{ totalBalance }}</TD>
+			</tr>
+		</table>
+</div>
+<div>
+	<table>
+		<tr>
+			<th>Stocks</th>
+			<th>Symbol</th>
+			<th>Shares</th>
+			<th>Stock price</th>
+			<th>Total</th>
+		</tr>
+		{% for item in items %}
+			<TR>
+				<TD> {{ item.stock }} </TD>
+				<TD> {{ item.symbol }} </TD>
+				<TD> {{ item.shares }} </TD>
+				<TD> {{ item.price }} </TD>
+				<TD> {{ item.total }} </TD>
+			</TR>
+		{% endfor %}
+	</table>
+</div>
+{% endblock %}
